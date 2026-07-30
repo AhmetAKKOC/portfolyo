@@ -1,6 +1,7 @@
 import { contact } from "@/data/profile";
 import { projects } from "@/data/projects";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
 import { TagList } from "@/components/ui/TagList";
 
 export function ProjectsSection() {
@@ -12,30 +13,34 @@ export function ProjectsSection() {
 
   return (
     <section className="section alt" id="projects" aria-labelledby="projects-title">
-      <SectionHeading
-        eyebrow="Projeler"
-        id="projects-title"
-        title="Öne çıkan çalışmalar"
-        action={githubAction}
-      />
+      <Reveal>
+        <SectionHeading
+          eyebrow="Projeler"
+          id="projects-title"
+          title="Öne çıkan çalışmalar"
+          action={githubAction}
+        />
+      </Reveal>
       <div className="project-grid featured">
-        {projects.map((project) => (
-          <article className="project-card" key={project.title}>
-            <div className="project-top">
-              <span className="project-type">{project.title}</span>
-              <a className="project-link" href={project.href} target="_blank" rel="noreferrer">
-                Erişim
-              </a>
-            </div>
-            <h3>{project.subtitle}</h3>
-            <p>{project.description}</p>
-            <ul className="experience-list compact">
-              {project.bullets.map((bullet) => (
-                <li key={bullet}>{bullet}</li>
-              ))}
-            </ul>
-            <TagList items={project.tags} className="project-tags" />
-          </article>
+        {projects.map((project, index) => (
+          <Reveal key={project.title} delay={index * 100}>
+            <article className="project-card">
+              <div className="project-top">
+                <span className="project-type">{project.title}</span>
+                <a className="project-link" href={project.href} target="_blank" rel="noreferrer">
+                  Erişim
+                </a>
+              </div>
+              <h3>{project.subtitle}</h3>
+              <p>{project.description}</p>
+              <ul className="experience-list compact">
+                {project.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+              <TagList items={project.tags} className="project-tags" />
+            </article>
+          </Reveal>
         ))}
       </div>
     </section>

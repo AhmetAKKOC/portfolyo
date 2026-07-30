@@ -2,9 +2,16 @@ export const projects = [
   {
     title: "Telrics",
     subtitle: "B2B Telecom SaaS Platform",
-    href: "https://app.telrics.com",
+    href: "https://telrics.com/en",
     description:
       "Kullanıcıların kayıt olup abonelik satın alabildiği, kredi ve faturalandırma süreçlerini yönetebildiği, SMPP/SMSC/SIGTRAN tabanlı telecom operasyonlarını self-service olarak kullanabildiği kapsamlı bir B2B SaaS platformunun frontend geliştirmesinde görev aldım.",
+    translations: {
+      en: {
+        subtitle: "B2B Telecom SaaS Platform",
+        description:
+          "Contributed to the frontend development of a comprehensive B2B SaaS platform where users can register, purchase subscriptions, manage credit and billing, and run SMPP/SMSC/SIGTRAN-based telecom operations through self-service workflows.",
+      },
+    },
     bullets: [
       "Next.js, React, TypeScript ve Tailwind CSS kullanarak ölçeklenebilir bir Telecom SaaS arayüzü geliştirdim.",
       "Register, 2FA, email verification, forgot/reset password ve session yönetimi gibi authentication akışlarını implemente ettim.",
@@ -32,6 +39,13 @@ export const projects = [
     href: "https://edevletonay.medium.com.tr",
     description:
       "Kullanıcıların dijital ortamda başvuru oluşturabildiği, gerekli evrakları yükleyebildiği ve başvuru süreçlerini takip edebildiği E-Devlet entegrasyonlu başvuru sisteminin frontend geliştirmesinde görev aldım.",
+    translations: {
+      en: {
+        subtitle: "E-Government Integrated Digital Application Platform",
+        description:
+          "Contributed to the frontend development of an e-government integrated application platform where users can submit applications, upload required documents, and track each step of the process online.",
+      },
+    },
     bullets: [
       "Next.js, React, TypeScript ve Tailwind CSS kullanarak kullanıcı başvuru, evrak yönetimi ve başvuru takip ekranlarını geliştirdim.",
       "Login, Register, forgot/reset password ve session yönetimi gibi authentication akışlarını implemente ettim.",

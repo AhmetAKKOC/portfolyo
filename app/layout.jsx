@@ -9,11 +9,11 @@ export async function generateMetadata() {
 
   return {
     metadataBase: new URL(`${protocol}://${host}`),
-    title: "Ahmet Akkoç | Digital Product Engineer",
+    title: "Ahmet Akkoç | Computer Engineer",
     description:
-      "Ahmet Akkoç - SaaS, iş akışları ve entegrasyon odaklı dijital ürünler geliştiren frontend ve full stack developer.",
+      "Ahmet Akkoç - SaaS, iş akışları ve entegrasyon odaklı dijital ürünler geliştiren bilgisayar mühendisi.",
     openGraph: {
-      title: "Ahmet Akkoç | Digital Product Engineer",
+      title: "Ahmet Akkoç | Computer Engineer",
       description: "SaaS, iş akışları ve entegrasyon odaklı dijital ürünler.",
       type: "website",
       locale: "tr_TR",
@@ -22,20 +22,20 @@ export async function generateMetadata() {
           url: "/og.png",
           width: 1731,
           height: 908,
-          alt: "Ahmet Akkoç - Digital Product Engineer",
+          alt: "Ahmet Akkoç - Computer Engineer",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Ahmet Akkoç | Digital Product Engineer",
+      title: "Ahmet Akkoç | Computer Engineer",
       description: "SaaS, iş akışları ve entegrasyon odaklı dijital ürünler.",
       images: ["/og.png"],
     },
     icons: {
-      icon: "/logo.png",
-      shortcut: "/logo.png",
-      apple: "/logo.png",
+      icon: [{ url: "/favicon.png", type: "image/png" }],
+      shortcut: "/favicon.png",
+      apple: "/favicon.png",
     },
   };
 }

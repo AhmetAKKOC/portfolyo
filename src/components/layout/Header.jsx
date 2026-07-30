@@ -1,18 +1,46 @@
+"use client";
+
+import { MagneticLink } from "@/components/ui/MagneticLink";
+import { useLanguage } from "@/i18n/LanguageProvider";
+
 export function Header() {
+  const { language, setLanguage, copy } = useLanguage();
+
   return (
     <header className="experience-header">
-      <a className="experience-brand" href="#top" aria-label="Ana sayfaya git">
-        <span>AK</span>
-        <small>Portfolio</small>
+      <a className="experience-brand" href="#top" aria-label={copy.header.homeLabel}>
+        <img src="/logo.png" alt="" />
       </a>
-      <nav className="experience-nav" aria-label="Ana navigasyon">
-        <a href="#about">Yaklaşım</a>
-        <a href="#work">İşler</a>
-        <a href="#skills">Build log</a>
+      <nav className="experience-nav" aria-label={copy.header.navigationLabel}>
+        <a href="#about">{copy.header.approach}</a>
+        <a href="#work">{copy.header.work}</a>
+        <a href="#skills">{copy.header.buildLog}</a>
       </nav>
-      <a className="experience-action" href="#contact">
-        İletişim <span aria-hidden="true">-&gt;</span>
-      </a>
+      <div className="header-tools">
+        <div className="language-switcher" role="group" aria-label={copy.header.languageLabel}>
+          <button
+            className={language === "tr" ? "is-active" : ""}
+            type="button"
+            aria-label={copy.header.turkishLabel}
+            aria-pressed={language === "tr"}
+            onClick={() => setLanguage("tr")}
+          >
+            TR
+          </button>
+          <button
+            className={language === "en" ? "is-active" : ""}
+            type="button"
+            aria-label={copy.header.englishLabel}
+            aria-pressed={language === "en"}
+            onClick={() => setLanguage("en")}
+          >
+            EN
+          </button>
+        </div>
+        <MagneticLink className="experience-action" href="#contact">
+          {copy.header.contact} <span aria-hidden="true">-&gt;</span>
+        </MagneticLink>
+      </div>
     </header>
   );
 }

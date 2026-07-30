@@ -2,7 +2,13 @@ export const experiences = [
   {
     company: "Perito Arge ve Yazılım",
     role: "Junior / Mid-Level Frontend Developer",
-    date: "01.09.2026 - Devam",
+    date: "09.2026 - Devam",
+    translations: {
+      en: {
+        role: "Junior / Mid-Level Frontend Developer",
+        date: "09.2026 - Present",
+      },
+    },
     location: "İzmir, Türkiye",
     bullets: [
       "Next.js ve TypeScript kullanarak geliştirilen kurumsal web projelerinin frontend geliştirme süreçlerinde görev aldım.",
@@ -25,7 +31,13 @@ export const experiences = [
   {
     company: "Perito Arge ve Yazılım",
     role: "Frontend Developer / Yazılım Stajyeri",
-    date: "01.08.2026 - 01.09.2026",
+    date: "08.2026 - 09.2026",
+    translations: {
+      en: {
+        role: "Frontend Developer / Software Intern",
+        date: "08.2026 - 09.2026",
+      },
+    },
     location: "İzmir, Türkiye",
     bullets: [
       "AIConnect Interface platformunun kullanıcı arayüzlerini geliştirerek backend servisleri ile entegrasyonlarını gerçekleştirdim.",
@@ -35,7 +47,13 @@ export const experiences = [
   {
     company: "Probel Yazılım ve Bilişim Hizmetleri",
     role: "FullStack Developer / Yazılım Stajyeri",
-    date: "01.07.2024 - 01.08.2024",
+    date: "07.2024 - 08.2024",
+    translations: {
+      en: {
+        role: "Full Stack Developer / Software Intern",
+        date: "07.2024 - 08.2024",
+      },
+    },
     location: "İzmir, Türkiye",
     bullets: [
       "Hasta yönetimi, kullanıcı işlemleri ve veritabanı entegrasyonları üzerinde çalışarak full stack geliştirme deneyimi kazandım.",

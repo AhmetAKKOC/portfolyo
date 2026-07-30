@@ -1,141 +1,165 @@
+"use client";
+
+import { Fragment } from "react";
 import { contact } from "@/data/profile";
 import { projects } from "@/data/projects";
 import { experiences } from "@/data/experiences";
-import { PortfolioScene } from "@/components/scene/PortfolioScene";
+import { KineticTypeHero } from "@/components/portfolio/KineticTypeHero";
 import { ProjectStage } from "@/components/portfolio/ProjectStage";
-
-const capabilities = [
-  ["01", "Product interface", "Karmaşık iş akışlarını anlaşılır, ölçülebilir ve hızlı arayüzlere çeviriyorum."],
-  ["02", "System thinking", "Kimlik doğrulama, ödeme, veri yönetimi ve operasyon ekranlarını tek ürün dili altında birleştiriyorum."],
-  ["03", "Reliable delivery", "Performans, erişilebilirlik ve sürdürülebilir bileşen yapısını ilk günden ürünün parçası kabul ediyorum."],
-];
+import { ExperienceHud } from "@/components/portfolio/ExperienceHud";
+import { MagneticLink } from "@/components/ui/MagneticLink";
+import { Reveal } from "@/components/ui/Reveal";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 export function PortfolioExperience() {
+  const { language, copy } = useLanguage();
+  const tapeItems = [...copy.work.tape, ...copy.work.tape];
+
   return (
     <main id="top">
+      <ExperienceHud />
       <section className="hero-experience" aria-labelledby="hero-title">
-        <PortfolioScene />
-        <div className="hero-noise" aria-hidden="true" />
+        <KineticTypeHero />
         <div className="hero-inner layout-grid">
-          <div className="hero-copy-block">
-            <p className="kicker">Ahmet Akkoç / Digital product engineer</p>
+          <Reveal className="hero-copy-block" delay={40}>
+            <p className="hero-name">Ahmet Akkoç</p>
+            <p className="kicker">Computer Engineer</p>
             <h1 id="hero-title">
-              Karmaşık sistemleri,
-              <span>net deneyimlere</span>
-              dönüştürüyorum.
+              {copy.hero.titleBefore}
+              <span>{copy.hero.titleAccent}</span>
+              {copy.hero.titleAfter}
             </h1>
-            <p className="hero-lede">
-              Frontend ve full stack geliştirici olarak SaaS ürünleri, iş akışları ve entegrasyon
-              odaklı platformlar tasarlıyor, geliştiriyor ve olgunlaştırıyorum.
-            </p>
-          </div>
-          <div className="hero-side-note">
+            <p className="hero-lede">{copy.hero.lede}</p>
+          </Reveal>
+          <Reveal className="hero-side-note" delay={180}>
             <span className="live-dot" />
-            <p>İzmir, Türkiye</p>
-            <strong>Yeni projelere açık</strong>
-          </div>
-          <a className="hero-index" href="#work">
-            <span>01</span>
-            <span>Seçili işler</span>
-          </a>
+            <p>{copy.hero.location}</p>
+            <strong>{copy.hero.availability}</strong>
+          </Reveal>
         </div>
-        <div className="hero-bottom layout-grid" aria-label="Odak alanları">
-          <span>Next.js / React / TypeScript</span>
-          <span>B2B SaaS / Operations / Integrations</span>
-          <span>2026 / Türkiye</span>
+        <div className="hero-bottom" aria-label={copy.hero.focusLabel}>
+          <div className="hero-bottom-inner layout-grid">
+            <span>{copy.hero.stack}</span>
+            <span>{copy.hero.focus}</span>
+            <span>{copy.hero.yearLocation}</span>
+          </div>
         </div>
       </section>
 
-      <section className="manifesto-section layout-grid" id="about" aria-labelledby="manifesto-title">
-        <p className="section-number">01 / Yaklaşım</p>
-        <div className="manifesto-copy">
-          <h2 id="manifesto-title">Arayüz, sistemin görünen yarısıdır.</h2>
-          <p>
-            Etkili bir ürün, yalnızca iyi görünmez. Doğru bilgiyi doğru zamanda verir, işi hızlandırır
-            ve karmaşıklığı arka planda tutar. Bu yüzden tasarım kararlarını ürün mantığı ve teknik
-            gerçeklikle birlikte alıyorum.
-          </p>
+      <section className="manifesto-section" id="about" aria-labelledby="manifesto-title">
+        <div className="manifesto-geometry" aria-hidden="true">
+          <span className="manifesto-geometry-frame" />
+          <span className="manifesto-geometry-axis" />
+          <span className="manifesto-geometry-acid" />
+          <span className="manifesto-geometry-coral" />
         </div>
-        <div className="capability-list">
-          {capabilities.map(([index, title, description]) => (
-            <article key={title}>
-              <span>{index}</span>
-              <h3>{title}</h3>
-              <p>{description}</p>
-            </article>
-          ))}
+        <div className="layout-grid manifesto-inner">
+          <Reveal className="section-number">{copy.manifesto.sectionLabel}</Reveal>
+          <Reveal className="manifesto-copy" delay={100}>
+            <h2 id="manifesto-title">{copy.manifesto.title}</h2>
+            <p>{copy.manifesto.copy}</p>
+          </Reveal>
+          <Reveal className="capability-list" delay={180}>
+            {copy.manifesto.capabilities.map(([index, title, description]) => (
+              <article key={title}>
+                <span>{index}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
+          </Reveal>
         </div>
       </section>
 
       <section className="work-section" id="work" aria-labelledby="work-title">
-        <div className="layout-grid work-heading">
-          <p className="section-number">02 / Seçili işler</p>
-          <div>
-            <h2 id="work-title">Gerçek ürünler. Gerçek akışlar.</h2>
-            <p>İki farklı sektörde, kullanıcı yolculuğunu ve operasyonel ihtiyacı aynı anda ele alan arayüzler.</p>
+        <div className="kinetic-tape" aria-hidden="true">
+          <div className="kinetic-tape-track">
+            {tapeItems.map((item, index) => (
+              <Fragment key={`${item}-${index}`}>
+                <span>{item}</span><i />
+              </Fragment>
+            ))}
           </div>
         </div>
+        <div className="layout-grid work-heading">
+          <Reveal className="section-number work-heading-number">{copy.work.sectionLabel}</Reveal>
+          <Reveal className="work-heading-copy" delay={90}>
+            <h2 id="work-title">{copy.work.title}</h2>
+            <p>{copy.work.copy}</p>
+          </Reveal>
+        </div>
         <div className="project-list">
-          {projects.map((project, index) => (
-            <article className="project-feature" key={project.title}>
-              <div className="layout-grid project-feature-inner">
-                <div className="project-meta">
-                  <p>0{index + 1} / {project.title}</p>
-                  <h3>{project.subtitle}</h3>
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-tags">
-                    {project.tags.slice(0, 4).map((tag) => <span key={tag}>{tag}</span>)}
-                  </div>
-                  <a href={project.href} target="_blank" rel="noreferrer" className="project-link">
-                    Ürünü incele <span aria-hidden="true">-&gt;</span>
-                  </a>
+          {projects.map((project, index) => {
+            const localizedProject = project.translations?.[language] ?? project;
+
+            return (
+              <article className="project-feature" key={project.title}>
+                <div className="layout-grid project-feature-inner">
+                  <Reveal className="project-meta" delay={60}>
+                    <p>0{index + 1} / {project.title}</p>
+                    <h3>{localizedProject.subtitle}</h3>
+                    <p className="project-description">{localizedProject.description}</p>
+                    <div className="project-tags">
+                      {project.tags.slice(0, 4).map((tag) => <span key={tag}>{tag}</span>)}
+                    </div>
+                    <MagneticLink href={project.href} target="_blank" rel="noreferrer" className="project-link">
+                      {copy.work.action} <span aria-hidden="true">-&gt;</span>
+                    </MagneticLink>
+                  </Reveal>
+                  <Reveal className="project-stage-reveal" delay={150}>
+                    <ProjectStage project={project} />
+                  </Reveal>
                 </div>
-                <ProjectStage project={project} />
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </section>
 
-      <section className="build-log-section layout-grid" id="skills" aria-labelledby="build-log-title">
-        <p className="section-number">03 / Build log</p>
-        <div className="build-log-main">
-          <h2 id="build-log-title">Ürünleri görünür, dayanıklı ve hareketli tutmak.</h2>
-          <p>
-            Tasarım sistemi disiplinini, API katmanını ve performans hedeflerini bir arada tutan bir
-            geliştirme pratiği kuruyorum.
-          </p>
-          <div className="tech-stream" aria-label="Kullandığım teknolojiler">
-            <span>Next.js</span><span>React</span><span>TypeScript</span><span>TanStack Query</span>
-            <span>Tailwind</span><span>REST API</span><span>React Hook Form</span><span>i18n</span>
-          </div>
-        </div>
-        <div className="experience-rail" id="experience">
-          {experiences.slice(0, 3).map((experience, index) => (
-            <article key={`${experience.company}-${experience.role}`}>
-              <span>0{index + 1}</span>
-              <div>
-                <p>{experience.date}</p>
-                <h3>{experience.role}</h3>
-                <strong>{experience.company}</strong>
-              </div>
-            </article>
-          ))}
+      <section className="build-log-section" id="skills" aria-labelledby="build-log-title">
+        <div className="layout-grid build-log-inner">
+          <Reveal className="section-number">{copy.buildLog.sectionLabel}</Reveal>
+          <Reveal className="build-log-main" delay={90}>
+            <h2 id="build-log-title">{copy.buildLog.title}</h2>
+            <p>{copy.buildLog.copy}</p>
+            <div className="tech-stream" aria-label={copy.buildLog.technologiesLabel}>
+              <span>Next.js</span><span>React</span><span>TypeScript</span><span>TanStack Query</span>
+              <span>Tailwind</span><span>REST API</span><span>React Hook Form</span><span>i18n</span>
+            </div>
+          </Reveal>
+          <Reveal className="experience-rail" id="experience" delay={180}>
+            {experiences.slice(0, 3).map((experience, index) => {
+              const localizedExperience = experience.translations?.[language] ?? experience;
+
+              return (
+                <article key={`${experience.company}-${experience.role}`}>
+                  <span>0{index + 1}</span>
+                  <div>
+                    <p>{localizedExperience.date}</p>
+                    <h3>{localizedExperience.role}</h3>
+                    <strong>{experience.company}</strong>
+                  </div>
+                </article>
+              );
+            })}
+          </Reveal>
         </div>
       </section>
 
       <section className="contact-experience" id="contact" aria-labelledby="contact-title">
         <div className="layout-grid contact-experience-inner">
-          <p className="section-number">04 / İletişim</p>
-          <div>
-            <h2 id="contact-title">Bir sonraki ürününü birlikte netleştirelim.</h2>
-            <p>Yeni bir ürün, iyileştirilmesi gereken bir arayüz veya güçlü bir teknik ortaklık için.</p>
-          </div>
-          <a className="contact-mail" href={`mailto:${contact.email}`}>{contact.email}<span aria-hidden="true">-&gt;</span></a>
-          <div className="contact-socials">
+          <Reveal className="section-number">{copy.contact.sectionLabel}</Reveal>
+          <Reveal className="contact-copy" delay={80}>
+            <h2 id="contact-title">{copy.contact.title}</h2>
+            <p>{copy.contact.copy}</p>
+          </Reveal>
+          <Reveal className="contact-mail-reveal" delay={150}>
+            <MagneticLink className="contact-mail" href={`mailto:${contact.email}`}>{contact.email}<span aria-hidden="true">-&gt;</span></MagneticLink>
+          </Reveal>
+          <Reveal className="contact-socials" delay={220}>
             <a href={contact.linkedin.href} target="_blank" rel="noreferrer">LinkedIn</a>
             <a href={contact.github.href} target="_blank" rel="noreferrer">GitHub</a>
-          </div>
+          </Reveal>
         </div>
       </section>
     </main>
