@@ -1,6 +1,5 @@
 import { contact } from "@/data/profile";
 import { education } from "@/data/education";
-import { experiences } from "@/data/experiences";
 import { skills } from "@/data/skills";
 import { SITE_URL, LOCALES, DEFAULT_LOCALE } from "@/lib/seo";
 
@@ -15,15 +14,16 @@ import { SITE_URL, LOCALES, DEFAULT_LOCALE } from "@/lib/seo";
  *
  * Values are pulled from src/data/* rather than retyped. Three fields are deliberately
  * ABSENT rather than guessed:
- *   - worksFor.url / alumniOf.url — no employer or university URL exists in the data
+ *   - worksFor — removed at the site owner's request along with the employment section;
+ *     the page no longer names an employer, and schema should not assert what the page
+ *     does not show
+ *   - alumniOf.url — no university URL exists in the data
  *   - image — no headshot asset exists; /og.jpg is a text banner, and pointing Person.image
  *     at it would misrepresent the property
  *   - telephone — it exists in profile.js but is not rendered anywhere on the page, so
  *     publishing it in markup would both leak it and describe content that is not there
  * Add them once real values exist; do not substitute approximations.
  */
-
-const currentRole = experiences[0];
 
 const knowsAbout = [
   ...new Set([
@@ -58,10 +58,6 @@ export function buildStructuredData(locale = DEFAULT_LOCALE) {
       "@type": "PostalAddress",
       addressLocality: "İzmir",
       addressCountry: "TR",
-    },
-    worksFor: {
-      "@type": "Organization",
-      name: currentRole.company,
     },
     alumniOf: {
       "@type": "CollegeOrUniversity",

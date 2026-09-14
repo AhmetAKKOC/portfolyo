@@ -7,10 +7,9 @@ const sectionIds = [
   { id: "top", number: "00" },
   { id: "about", number: "01" },
   { id: "work", number: "02" },
-  { id: "experience", number: "03" },
-  { id: "skills", number: "04" },
-  { id: "education", number: "05" },
-  { id: "contact", number: "06" },
+  { id: "skills", number: "03" },
+  { id: "education", number: "04" },
+  { id: "contact", number: "05" },
 ];
 
 export function ExperienceHud() {

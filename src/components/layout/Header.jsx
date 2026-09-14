@@ -18,7 +18,6 @@ export function Header() {
       <nav className="experience-nav" aria-label={copy.header.navigationLabel}>
         <a href="#about">{copy.header.approach}</a>
         <a href="#work">{copy.header.work}</a>
-        <a href="#experience">{copy.header.experience}</a>
         <a href="#skills">{copy.header.buildLog}</a>
       </nav>
       <div className="header-tools">
