@@ -3,4 +3,12 @@ export const education = {
   department: "Bilgisayar Mühendisliği",
   date: "09.2020 - 05.2026",
   location: "Çanakkale",
+  translations: {
+    en: {
+      school: "Çanakkale Onsekiz Mart University",
+      department: "Computer Engineering",
+      date: "09.2020 - 05.2026",
+      location: "Çanakkale, Turkey",
+    },
+  },
 };
