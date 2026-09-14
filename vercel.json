@@ -39,6 +39,5 @@
         }
       ]
     }
-  ],
-  "//": "The www -> apex redirect lives in next.config.js: Vercel applies these headers on a Next.js project, but vercel.json redirects did not match (www kept returning 200)."
+  ]
 }
