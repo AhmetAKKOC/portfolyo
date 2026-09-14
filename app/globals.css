@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap");
-
 :root {
   --ink: #090a08;
   --ink-soft: #12130f;
@@ -23,7 +21,7 @@ body {
   margin: 0;
   background: var(--ink);
   color: var(--paper);
-  font-family: "Space Grotesk", Arial, sans-serif;
+  font-family: var(--font-space-grotesk), Arial, sans-serif;
   letter-spacing: 0;
 }
 
@@ -115,7 +113,7 @@ a {
   height: 26px;
   place-items: center;
   color: rgba(242, 240, 232, 0.42);
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.56rem;
   line-height: 1;
   transition: color 180ms ease, background-color 180ms ease;
@@ -167,7 +165,7 @@ a {
   gap: 28px;
   justify-content: center;
   color: var(--paper-muted);
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.73rem;
 }
 
@@ -197,9 +195,10 @@ a {
   grid-template-columns: repeat(2, 34px);
   min-height: 42px;
   border: 1px solid rgba(242, 240, 232, 0.28);
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
 }
 
+.language-switcher a,
 .language-switcher button {
   display: grid;
   place-items: center;
@@ -213,10 +212,12 @@ a {
   transition: color 180ms ease, background-color 180ms ease;
 }
 
-.language-switcher button + button {
+.language-switcher a + a, .language-switcher button + button {
   border-left: 1px solid rgba(242, 240, 232, 0.18);
 }
 
+.language-switcher a:hover,
+.language-switcher a:focus-visible,
 .language-switcher button:hover,
 .language-switcher button:focus-visible {
   color: var(--paper);
@@ -224,7 +225,7 @@ a {
   outline: none;
 }
 
-.language-switcher button.is-active {
+.language-switcher a.is-active, .language-switcher button.is-active {
   color: var(--ink);
   background: var(--acid);
 }
@@ -236,7 +237,7 @@ a {
   color: var(--ink);
   background: var(--acid);
   padding: 12px 16px;
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.73rem;
   font-weight: 500;
   transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1), background-color 180ms ease;
@@ -324,7 +325,7 @@ a {
   opacity: 0;
   filter: blur(5px);
   color: rgba(242, 240, 232, 0.44);
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.62rem;
   line-height: 1.4;
   text-transform: uppercase;
@@ -363,6 +364,7 @@ a {
 }
 
 .hero-name {
+  display: block;
   margin: 0 0 9px;
   color: var(--paper);
   font-size: 1.38rem;
@@ -379,13 +381,14 @@ a {
 .hero-bottom,
 .hero-side-note p {
   margin: 0;
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.69rem;
   line-height: 1.4;
   text-transform: uppercase;
 }
 
 .kicker {
+  display: block;
   margin-bottom: 24px;
   color: var(--acid);
 }
@@ -398,7 +401,7 @@ a {
   line-height: 0.94;
 }
 
-.hero-copy-block h1 span {
+.hero-copy-block h1 .hero-h1-accent {
   display: block;
   color: var(--acid);
 }
@@ -598,7 +601,7 @@ a {
 
 .capability-list span {
   color: var(--coral);
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.68rem;
 }
 
@@ -634,7 +637,7 @@ a {
   width: max-content;
   min-height: 52px;
   padding-right: 18px;
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.66rem;
   text-transform: uppercase;
   animation: tape-run 24s linear infinite;
@@ -732,7 +735,7 @@ a {
   border: 1px solid rgba(242, 240, 232, 0.3);
   padding: 7px 9px;
   color: rgba(242, 240, 232, 0.78);
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.64rem;
 }
 
@@ -743,7 +746,7 @@ a {
   border-bottom: 1px solid var(--acid);
   padding-bottom: 8px;
   color: var(--acid);
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.73rem;
   transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1), color 180ms ease, border-color 180ms ease;
 }
@@ -955,7 +958,7 @@ a {
   justify-content: space-between;
   padding: 20px 0;
   color: var(--paper);
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.7rem;
 }
 
@@ -1044,7 +1047,7 @@ a {
   place-items: center;
   color: var(--paper);
   background: var(--ink);
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 1.1rem;
 }
 
@@ -1085,7 +1088,7 @@ a {
   border: 1px solid var(--ink);
   padding: 10px 12px;
   color: var(--ink);
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.62rem;
   text-transform: uppercase;
   transform: rotate(-8deg);
@@ -1141,7 +1144,7 @@ a {
   border-right: 1px solid var(--line-light);
   border-bottom: 1px solid var(--line-light);
   padding: 12px;
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.71rem;
 }
 
@@ -1232,7 +1235,7 @@ a {
   display: flex;
   gap: 17px;
   margin-top: 103px;
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.72rem;
 }
 
@@ -1248,7 +1251,7 @@ a {
   padding: 24px 32px;
   color: rgba(242, 240, 232, 0.62);
   background: var(--ink);
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 0.68rem;
   text-transform: uppercase;
 }
@@ -1395,4 +1398,312 @@ a {
   .project-stage { transform: none; }
   .project-stage:hover { box-shadow: none; }
   .project-stage:hover .stage-tracker { opacity: 0; }
+}
+
+/* ---------------------------------------------------------------------------
+   Content sections added to surface data that already existed in src/data/*
+   but was never rendered: project and experience bullets, the full skills
+   groups, and education. Rhythm continues the existing palette cycle:
+   paper -> ink -> ink-soft -> acid -> paper -> coral.
+   --------------------------------------------------------------------------- */
+
+/* Self-contained bio paragraph (manifesto section, paper background) */
+.bio-block {
+  grid-column: 4 / span 6;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line-light);
+}
+.bio-block h3 {
+  margin: 0 0 16px;
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 0.69rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: rgba(9, 10, 8, 0.55);
+}
+.bio-block p {
+  max-width: 660px;
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: rgba(9, 10, 8, 0.82);
+}
+
+/* Bullet lists shared by the work and experience sections (both dark) */
+.detail-block {
+  margin-top: 26px;
+}
+.detail-block h4 {
+  margin: 0 0 12px;
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 0.64rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--acid);
+}
+.detail-block .project-tags {
+  margin-top: 0;
+}
+.detail-list {
+  max-width: 560px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.detail-list li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 10px;
+  color: rgba(242, 240, 232, 0.76);
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+.detail-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.62em;
+  left: 0;
+  width: 7px;
+  height: 1px;
+  background: var(--acid);
+}
+.detail-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Experience — promoted out of the build-log rail into its own section */
+.experience-section {
+  padding-top: 144px;
+  padding-bottom: 144px;
+  color: var(--paper);
+  background: var(--ink-soft);
+}
+.experience-inner {
+  align-items: start;
+  row-gap: 56px;
+}
+.experience-heading-copy {
+  grid-column: 4 / span 6;
+}
+.experience-heading-copy h2 {
+  margin: 0;
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1;
+}
+.experience-heading-copy > p {
+  max-width: 590px;
+  margin: 28px 0 0;
+  color: rgba(242, 240, 232, 0.7);
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+.experience-entries {
+  grid-column: 4 / span 9;
+  display: grid;
+  gap: 0;
+}
+.experience-entry {
+  padding: 40px 0;
+  border-top: 1px solid var(--line-dark);
+}
+.experience-entry:last-child {
+  border-bottom: 1px solid var(--line-dark);
+}
+.experience-entry-head {
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+}
+.experience-entry-index {
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 0.69rem;
+  color: var(--acid);
+}
+.experience-entry-head h3 {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.experience-entry-head strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(242, 240, 232, 0.88);
+}
+.experience-entry-meta {
+  margin: 8px 0 0;
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 0.69rem;
+  text-transform: uppercase;
+  color: rgba(242, 240, 232, 0.55);
+}
+
+/* Skills — real groups from src/data/skills.js, replacing a hardcoded 8-item list */
+.skills-grid {
+  grid-column: 4 / span 9;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 42px;
+  border-top: 1px solid var(--line-light);
+  border-left: 1px solid var(--line-light);
+}
+.skills-group {
+  padding: 22px;
+  border-right: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line-light);
+}
+.skills-group h3 {
+  margin: 0 0 14px;
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 0.69rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: rgba(9, 10, 8, 0.6);
+}
+.skills-group ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.skills-group li {
+  margin-bottom: 8px;
+  font-size: 0.93rem;
+  line-height: 1.5;
+}
+.skills-group li:last-child {
+  margin-bottom: 0;
+}
+
+/* Education — was absent from the page entirely */
+.education-section {
+  padding-top: 144px;
+  padding-bottom: 144px;
+  color: var(--ink);
+  background: var(--paper);
+}
+.education-inner {
+  align-items: start;
+}
+.education-card {
+  grid-column: 4 / span 6;
+}
+.education-card h2 {
+  margin: 0;
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1;
+}
+.education-card h3 {
+  margin: 34px 0 0;
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.education-card dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 26px 0 0;
+  border-top: 1px solid var(--line-light);
+  border-left: 1px solid var(--line-light);
+}
+.education-card dl > div {
+  padding: 18px;
+  border-right: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line-light);
+}
+.education-card dt {
+  margin: 0 0 8px;
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  color: rgba(9, 10, 8, 0.55);
+}
+.education-card dd {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 1050px) {
+  .bio-block,
+  .experience-heading-copy,
+  .experience-entries,
+  .skills-grid,
+  .education-card {
+    grid-column: 1 / span 12;
+  }
+}
+
+@media (max-width: 760px) {
+  .experience-section,
+  .education-section {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+  .experience-heading-copy h2,
+  .education-card h2 {
+    font-size: 38px;
+  }
+  .skills-grid,
+  .education-card dl {
+    grid-template-columns: 1fr;
+  }
+  .experience-entry {
+    padding: 30px 0;
+  }
+}
+
+@media (max-width: 460px) {
+  .experience-entry-head {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .bio-block p {
+    font-size: 0.97rem;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Mobile fixes: decorative type collided with real copy, and the header
+   controls sat under the 44px tap-target guidance.
+   --------------------------------------------------------------------------- */
+
+@media (max-width: 760px) {
+  /* "ARCHITECTURE" sat at full-opacity acid directly on top of the last line of
+     the hero lede. Moved out of the copy band and given the same recessive
+     treatment the other kinetic words already have, so it reads as background. */
+  .kinetic-type-motion {
+    top: auto;
+    bottom: 150px;
+    right: 20px;
+    font-size: 34px;
+  }
+  /* Matches the specificity of `.kinetic-type-stage.is-ready .kinetic-type-word`,
+     which sets opacity:1 — a bare `.kinetic-type-motion` rule loses to it even
+     inside a media query, since media queries add no specificity. */
+  .kinetic-type-stage.is-ready .kinetic-type-motion {
+    opacity: 0.42;
+  }
+
+  /* Tap targets: measured 31x36 (TR/EN) and 98x33 (CTA) before this. */
+  .language-switcher a,
+.language-switcher button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .experience-action {
+    min-height: 44px;
+    padding: 12px 18px;
+  }
+  .experience-brand {
+    width: 44px;
+    height: 44px;
+  }
 }

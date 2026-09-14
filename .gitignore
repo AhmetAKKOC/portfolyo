@@ -8,3 +8,6 @@ out/
 
 dist/
 coverage/
+
+# Local SEO audit artifacts (reports + ~2MB screenshots), not product code
+ahmetakkoc.com-audit/

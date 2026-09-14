@@ -1,27 +1,30 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useMemo } from "react";
 import { siteCopy } from "@/i18n/copy";
 
 const LanguageContext = createContext(null);
-const STORAGE_KEY = "ahmet-akkoc-language";
 
-export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState("tr");
-
-  useEffect(() => {
-    const storedLanguage = window.localStorage.getItem(STORAGE_KEY);
-    if (storedLanguage === "tr" || storedLanguage === "en") setLanguage(storedLanguage);
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.lang = language;
-    document.title = siteCopy[language].documentTitle;
-    window.localStorage.setItem(STORAGE_KEY, language);
-  }, [language]);
-
+/**
+ * Language comes from the route now, not from localStorage.
+ *
+ * The previous version defaulted to `useState("tr")` and only switched after hydration
+ * by reading localStorage, then wrote `document.documentElement.lang` and
+ * `document.title` from an effect. Three problems, all fixed by moving the decision to
+ * the route:
+ *
+ *   1. English copy never appeared in server-rendered HTML, so there was no crawlable
+ *      source text for English queries and no URL to point an hreflang tag at.
+ *   2. The client overwrote the server-rendered `<title>` on every mount, so the tag
+ *      Google indexed and the tag a visitor saw could disagree.
+ *   3. A visitor's language choice could not be linked, shared or bookmarked.
+ *
+ * `/` renders Turkish, `/en` renders English, each with its own root layout and its own
+ * `<html lang>`.
+ */
+export function LanguageProvider({ children, language = "tr" }) {
   const value = useMemo(
-    () => ({ language, setLanguage, copy: siteCopy[language] }),
+    () => ({ language, copy: siteCopy[language] }),
     [language],
   );
 
