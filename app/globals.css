@@ -1607,7 +1607,12 @@ a {
 }
 .education-card dl {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* auto-fit, not a fixed count: the cell borders plus the dl's own top/left border
+     only close into a box when the cells span the full width. A hardcoded 3 columns
+     left a dangling top border over the empty third track once the date cell was
+     removed. auto-fit collapses the empty track so this survives the field count
+     changing again. */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 0;
   margin: 26px 0 0;
   border-top: 1px solid var(--line-light);
