@@ -29,7 +29,7 @@ const META = {
   tr: {
     title: "Ahmet Akkoç | Bilgisayar Mühendisi & Frontend Developer",
     description:
-      "İzmir'de çalışan bilgisayar mühendisi Ahmet Akkoç. B2B SaaS, e-devlet entegrasyonu ve operasyon panelleri için Next.js, React ve TypeScript ile arayüz geliştiriyorum. Yeni projelere açığım.",
+      "İzmir'de çalışan bilgisayar mühendisi Ahmet Akkoç. B2B SaaS ve operasyon panelleri için Next.js, React ve TypeScript ile arayüz geliştiriyorum.",
     ogDescription:
       "B2B SaaS, e-devlet entegrasyonu ve operasyon panelleri için Next.js, React ve TypeScript ile arayüz geliştiren bilgisayar mühendisi.",
     imageAlt: "Ahmet Akkoç - Bilgisayar Mühendisi & Frontend Developer",
@@ -37,7 +37,7 @@ const META = {
   en: {
     title: "Ahmet Akkoç | Computer Engineer & Frontend Developer",
     description:
-      "Ahmet Akkoç is a computer engineer based in Izmir, Turkey. I build interfaces for B2B SaaS, e-government integrations and operational dashboards with Next.js, React and TypeScript. Open to new projects.",
+      "Ahmet Akkoç, computer engineer in Izmir, Turkey. I build B2B SaaS and operations interfaces with Next.js, React and TypeScript.",
     ogDescription:
       "Computer engineer building interfaces for B2B SaaS, e-government integrations and operational dashboards with Next.js, React and TypeScript.",
     imageAlt: "Ahmet Akkoç - Computer Engineer & Frontend Developer",
