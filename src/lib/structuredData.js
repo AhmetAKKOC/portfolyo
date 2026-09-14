@@ -51,9 +51,12 @@ export function buildStructuredData(locale = DEFAULT_LOCALE) {
     email: `mailto:${contact.email}`,
     jobTitle: contact.title,
     description:
-      locale === "tr"
-        ? "Bilgisayar mühendisi. B2B SaaS, e-devlet entegrasyonu ve operasyon panelleri için Next.js, React ve TypeScript ile arayüz geliştiriyor."
-        : "Computer engineer building interfaces for B2B SaaS, e-government integrations and operational dashboards with Next.js, React and TypeScript.",
+      "Computer engineer and frontend developer based in İzmir, Türkiye. Builds scalable user interfaces for B2B SaaS dashboards, operations screens and integration-led platforms with Next.js, React and TypeScript.",
+    // "Ahmet Akkoç" is shared with at least two better-established people — a
+    // veterinary pathology academic at Uludağ Üniversitesi and a data scientist.
+    // This property exists precisely to separate same-name entities.
+    disambiguatingDescription:
+      "Frontend developer and computer engineer in İzmir, Türkiye, working on B2B SaaS and enterprise operations interfaces. Not the veterinary pathology academic or the data scientist of the same name.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "İzmir",
@@ -76,7 +79,10 @@ export function buildStructuredData(locale = DEFAULT_LOCALE) {
     "@id": `${SITE_URL}/#website`,
     url: SITE_URL,
     name: contact.name,
-    inLanguage: htmlLang,
+    // Both locales are declared here rather than the current one: this node has a
+    // single @id shared across /  and /en, so a per-page value would make the same
+    // node contradict itself depending on which page dereferenced it.
+    inLanguage: [LOCALES.tr.htmlLang, LOCALES.en.htmlLang],
     publisher: { "@id": personId },
   };
 
@@ -88,6 +94,10 @@ export function buildStructuredData(locale = DEFAULT_LOCALE) {
     isPartOf: { "@id": `${SITE_URL}/#website` },
     about: { "@id": personId },
     mainEntity: { "@id": personId },
+    description:
+      locale === "tr"
+        ? "Ahmet Akkoç'un kişisel portfolyosu: B2B SaaS, operasyon panelleri ve entegrasyon odaklı platformlar için frontend geliştirme."
+        : "Personal portfolio of Ahmet Akkoç: frontend development for B2B SaaS, operations dashboards and integration-led platforms.",
   };
 
   return {

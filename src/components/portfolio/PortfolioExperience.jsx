@@ -27,7 +27,7 @@ export function PortfolioExperience() {
           <Reveal className="hero-copy-block" immediate>
             <h1 id="hero-title">
               <span className="hero-name">Ahmet Akkoç</span>
-              <span className="kicker">Computer Engineer</span>
+              <span className="kicker">{copy.hero.role}</span>
               {copy.hero.titleBefore}
               <span className="hero-h1-accent">{copy.hero.titleAccent}</span>
               {copy.hero.titleAfter}
